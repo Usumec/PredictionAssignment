@@ -4,8 +4,6 @@ gc()
 library(dplyr)
 
 pml_train <- read.csv("pml-training.csv")
-pml_test <- read.csv("pml-testing.csv")
-str(pml_train)
 
 # remove descriptive features
 pml_train <- pml_train %>%
@@ -40,4 +38,5 @@ predictions <- predict(model, newdata = testDS)
 conf <- confusionMatrix(predictions, testDS$classe)
 
 # Test data
+pml_test <- read.csv("pml-testing.csv")
 predict(model, newdata = pml_test)
